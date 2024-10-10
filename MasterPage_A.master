@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage_A.master.cs" Inherits="MasterPage_A" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server"> </asp:ContentPlaceHolder>
+    <style type="text/css">
+        @font-face {
+            font-family: 'Tenada';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{ font-family: 'Tenada'; }
+        .all-table { width: 100%; }
+        .logo{
+            height: 50px;
+            text-align: center;
+            font-size: x-large;
+        }
+        .logo-a{
+            text-decoration: none;
+            color: #1e767a; 
+        }
+        .logo-a:hover{ color: #005766; }
+        .header {
+            /* width 크기 다름 */
+            width: 25%; height: 50px;
+            text-align: center;
+        }
+        .nav{
+            width: 100%; height:100%;
+            border: none; 
+            background-color: #fff; /* #9ed1c7; */
+            color: #000000; 
+            font-size: 20px;
+            font-family: 'Tenada';
+        }
+        .nav:hover{ 
+            color: #005766;
+            background-color: rgba(158, 209, 199, .5);
+        }
+        .footer {
+            height: 25px;
+            padding: 10px;
+            text-align: left;
+            color: #1e767a; 
+            background-color: #9ed1c7;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table class="all-table">
+                <tr>
+                    <td class="logo" colspan="4">
+                        <asp:LinkButton ID="HomeLogo"  CssClass="logo-a" runat="server" PostBackUrl="~/Admin/Home.aspx">Time Manager</asp:LinkButton>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="header">
+                        <asp:Button ID="Home" runat="server" Text="홈" class="nav" OnClick="Home_Click" />
+                    </td>
+                    <td class="header">
+                        <asp:Button ID="Board" runat="server" Text="게시판" class="nav" OnClick="Board_Click" />
+                    </td>
+                    <td class="header">
+                        <asp:Button ID="User" runat="server" Text="회원" class="nav" OnClick="User_Click" />
+                    </td>
+                    <td class="header">
+                        <asp:Button ID="Logout" runat="server" Text="로그아웃" class="nav" OnClick="Logout_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="height:calc(100vh - 200px)">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="footer" colspan="4">2022 웹프로그래밍 및 데이터베이스 응용 - 김선희, 김주현</td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
